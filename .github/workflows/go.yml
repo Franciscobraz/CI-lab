@@ -45,3 +45,12 @@ jobs:
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         DB_NAME: ${{ secrets.DB_NAME }}
         DB_PORT: ${{ secrets.DB_PORT }}
+
+    - name: Build
+      run: go build main.go
+    
+    - name: Compiled Project
+      uses: actions/upload-artifact@v7
+      with:
+        name: compiled_project
+        path: main
